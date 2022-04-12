@@ -98,9 +98,8 @@
     <dependency>
       <groupId>com.datadoghq</groupId>
       <artifactId>dd-java-agent</artifactId>
-      <version>0.83.0-SNAPSHOT</version>
-      <scope>system</scope>
-      <systemPath>/home/vagrant/code/dd-trace-java/dd-java-agent/build/libs/dd-java-agent-0.91.0-SNAPSHOT.jar</systemPath>
+      <version>0.91.0</version>
+      <scope>provided</scope> <!-- not needed at runtime -->
     </dependency>
 
     <dependency>
