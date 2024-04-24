@@ -9,8 +9,10 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Cws {
     public String operationName() default "";
+
     public String fileField() default "";
+
     public String fileValue() default "";
+
     public String domainName() default "";
 }
-
