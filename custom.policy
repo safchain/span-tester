@@ -1,0 +1,3 @@
+rules:
+  - id: SECRET
+    expression: open.file.path == "/etc/secret"

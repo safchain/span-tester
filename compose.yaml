@@ -1,0 +1,24 @@
+services:
+  datadog-agent:
+    image: datadog/agent-dev:master
+    volumes:
+      - ./custom.policy:/etc/datadog-agent/runtime-security.d/custom.policy
+    networks:
+      - shared
+    environment:
+      - DD_API_KEY=
+      - DD_SITE=datadoghq.eu
+      - DD_RUNTIME_SECURITY_CONFIG_ENABLED=true
+      - DD_RUNTIME_SECURITY_CONFIG_EBPFLESS_ENABLED=true
+      - DD_HOSTNAME=apm-cws
+      - DD_RUNTIME_SECURITY_CONFIG_EBPFLESS_SOCKET=0.0.0.0:5678
+      - DD_APM_ENABLED=true
+  workload:
+    image: safchain/span-test:v1
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - shared
+
+networks:
+  shared:
